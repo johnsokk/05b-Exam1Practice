@@ -22,6 +22,7 @@ def main():
     run_test_problem0a()
     run_test_problem0b()
     run_test_problem0c()
+    checkwork2()
 
 
 ###############################################################################
@@ -359,7 +360,19 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ###########################################################################
     # -------------------------------------------------------------------------
+def checkwork2():
+    x = 33
+    r = 20
+    p = rg.Point(80, 50)
+    c = rg.Circle(p, r)
 
+    print(x)
+    print(r)
+    print(p.x)
+    print(p.y)
+    print(c.center.x)
+    print(c.center.y)
+    print(c.radius)
 
 ###############################################################################
 # Our tests use the following to print error messages in red.

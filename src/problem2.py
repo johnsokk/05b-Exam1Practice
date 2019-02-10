@@ -31,7 +31,7 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem2a()
+    # run_test_problem2a()
     run_test_problem2b()
 
 
@@ -64,7 +64,6 @@ def run_test_problem2a():
     # A third test on ANOTHER window.
     title = 'Test 3 of problem2a: yellow to black'
     window = rg.RoseWindow(400, 300, title)
-
     circle = rg.Circle(rg.Point(100, 50), 30)
     rectangle = rg.Rectangle(rg.Point(100, 100), rg.Point(50, 250))
     rectangle.outline_color = 'black'
@@ -184,8 +183,21 @@ def problem2b(rect, n, delta, win):
       :type delta:  int
       :type win:    rg.RoseWindow
     """
+
+    rect.attach_to(win)
+    for k in range(n-1):
+        left0 = rect.get_upper_left_corner()
+        upperleft = rg.Point(left0.x - delta, left0.y - delta)
+        right0 = rect.get_lower_right_corner()
+        lowerright = rg.Point(right0.x + delta, right0.y + delta)
+        rect = rg.Rectangle(upperleft, lowerright)
+        rect.attach_to(win)
+        win.render()
+    win.continue_on_mouse_click()
+
+
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
